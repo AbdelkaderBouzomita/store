@@ -21,6 +21,8 @@ const overlay = document.querySelector(".overlay");
 const bitPopUp = document.querySelector(".containerr");
 const nextClick = document.querySelector(".next-btn");
 const previousClick = document.querySelector(".previous-btn");
+const impRo1 = document.querySelectorAll(".impro1");
+
 numberOfProduct.textContent = "0";
 let numOfPro = 0;
 let valid = false;
@@ -99,31 +101,37 @@ principalProductImg.addEventListener("click", function () {
 let j = 4;
   previousClick.addEventListener("click", function () {
     biggImg.src = `images/image-product-${j--}.jpg`;
-    console.log(biggImg.src);
-    if (j==0) j=4
-    console.log(j);
+    for (sc of impRo1)
+    {
+      console.log(sc);
+      console.log(sc.src);
+      console.log(j);
+      if (sc.src == `http://127.0.0.1:5500/images/image-product-${j}.jpg`) {
+      
+        sc.classList.toggle("bor-r");
+      }
+    }
+    
+    
+    
+    if (j == 0) j = 4;
+   
   });
 
 nextClick.addEventListener("click", function ()
 {
   
-  if (j == 3) j = 0;
-    biggImg.src = `images/image-product-${j++}.jpg`;
-  console.log(biggImg.src);
+  if (j == 5) j = 1;
+  biggImg.src = `images/image-product-${j++}.jpg`;
+  
+ 
   console.log(j);
   
   });
 
-
-// nextClick.addEventListener("click", function ()
-// {
-//   let arr = [imPro1, imPro2, imPro3, imPro4];
-//   for (let i = 0; i < arr.length; i++)
-//   {
-
-//     console.log(arr[i]);
-//     console.log(i);
-//     biggImg.src = `images/image-product-${i + 1}.jpg`;
-//     console.log(bigImg.src);
-//   }
-// });
+  
+overlay.addEventListener("click", function ()
+{ 
+  bitPopUp.style.display = "none";
+  overlay.classList.toggle("hidden");
+});

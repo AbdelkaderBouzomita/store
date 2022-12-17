@@ -355,3 +355,6 @@ header {
 .hidden {
   display: none;
 }
+.bor-r{
+  border: 5px solid black;
+}
