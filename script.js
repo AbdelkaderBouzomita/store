@@ -22,7 +22,6 @@ const bitPopUp = document.querySelector(".containerr");
 const nextClick = document.querySelector(".next-btn");
 const previousClick = document.querySelector(".previous-btn");
 const impRo1 = document.querySelectorAll(".impro1");
-
 numberOfProduct.textContent = "0";
 let numOfPro = 0;
 let valid = false;
@@ -47,10 +46,8 @@ for (let i = 0; i < arr.length; i++) {
     console.log(bigImg.src);
   });
 }
-
 //!##################################################################
 //* Add to Cart
-
 addToCart.addEventListener("click", function () {
   if (numOfPro > 0) {
     valid = true;
@@ -58,10 +55,8 @@ addToCart.addEventListener("click", function () {
     numAcha.textContent = numOfPro;
   }
 });
-
 //!##################################################################
 //* Shop Button
-
 shopBtn.addEventListener("click", function () {
   popUp.classList.toggle("gg");
   if (numOfPro != 0 && valid === true) {
@@ -79,10 +74,8 @@ shopBtn.addEventListener("click", function () {
     priceOfProducts.textContent = "Your cart is empty";
     priceOfProducts.style.marginTop = "50px";
   }
-
   //!##################################################################
   //* Remoce
-
   deleteBtn.addEventListener("click", function () {
     numAcha.textContent = " ";
     numAcha.classList.remove("sss");
@@ -97,41 +90,24 @@ principalProductImg.addEventListener("click", function () {
   bitPopUp.style.display = "block";
   overlay.classList.toggle("hidden");
 });
-
 let j = 4;
-  previousClick.addEventListener("click", function () {
-    biggImg.src = `images/image-product-${j--}.jpg`;
-    for (sc of impRo1)
-    {
-      console.log(sc);
-      console.log(sc.src);
-      console.log(j);
-      if (sc.src == `http://127.0.0.1:5500/images/image-product-${j}.jpg`) {
-      
-        sc.classList.toggle("bor-r");
-      }
+previousClick.addEventListener("click", function () {
+  biggImg.src = `images/image-product-${j--}.jpg`;
+  for (sc of impRo1) {
+    console.log(sc);
+    console.log(sc.src);
+    console.log(j);
+    if (sc.src == `http://127.0.0.1:5500/images/image-product-${j}.jpg`) {
+      sc.classList.toggle("bor-r");
     }
-    
-    
-    
-    if (j == 0) j = 4;
-   
-  });
-
-nextClick.addEventListener("click", function ()
-{
-  
+  }
+  if (j == 0) j = 4;
+});
+nextClick.addEventListener("click", function () {
   if (j == 5) j = 1;
   biggImg.src = `images/image-product-${j++}.jpg`;
-  
- 
-  console.log(j);
-  
-  });
-
-  
-overlay.addEventListener("click", function ()
-{ 
+});
+overlay.addEventListener("click", function () {
   bitPopUp.style.display = "none";
   overlay.classList.toggle("hidden");
 });
